@@ -2,9 +2,6 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
--- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>")
-
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
@@ -18,9 +15,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- paste without losing the copy
 vim.keymap.set("x", "<leader>p", "\"_dP")
-
--- change the word your cursor on
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically

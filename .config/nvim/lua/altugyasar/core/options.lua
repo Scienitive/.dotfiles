@@ -20,6 +20,5 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.scrolloff = 8
-opt.mouse = ""
 
 opt.iskeyword:append("-")
