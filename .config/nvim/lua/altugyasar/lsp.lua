@@ -29,6 +29,9 @@ local on_attach = function(client, bufnr)
 	opts.desc = "Smart Rename"
 	keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
+	opts.desc = "Show Line Diagnostics"
+	keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+
 	opts.desc = "Go to Previous Diagnostic"
 	keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 
