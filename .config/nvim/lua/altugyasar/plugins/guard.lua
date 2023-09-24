@@ -8,6 +8,7 @@ return {
 		local ft = require("guard.filetype")
 
 		ft('rust'):fmt('rustfmt')
+		ft('go'):fmt('gofmt')
 
 		guard.setup({
 			fmt_ons_save = true,
