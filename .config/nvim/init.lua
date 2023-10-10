@@ -1,4 +1,2 @@
-require("altugyasar.core.options")
-require("altugyasar.core.keymaps")
-require("altugyasar.lazy")
-require("altugyasar.lsp")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")

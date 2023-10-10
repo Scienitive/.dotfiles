@@ -5,6 +5,8 @@ opt.number = true
 
 opt.tabstop = 4
 opt.shiftwidth = 4
+opt.autoindent = true
+opt.smartindent = true
 
 opt.ignorecase = true
 opt.smartcase = true
