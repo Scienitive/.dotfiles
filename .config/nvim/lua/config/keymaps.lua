@@ -8,3 +8,5 @@ keymap.set({ "n", "v" }, "<leader>y", '"+y')
 keymap.set({ "n", "v" }, "<leader>Y", '"+Y')
 keymap.set("n", "<leader>p", '"+p')
 keymap.set("n", "<leader>P", '"+P')
+
+keymap.set("n", "<leader>md", ":MarkdownPreviewToggle<CR>")
