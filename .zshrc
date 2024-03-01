@@ -115,5 +115,6 @@ eval "$(starship init zsh)"
 alias vim="nvim"
 alias vimconfig="cd ~/.config/nvim; vim init.lua"
 alias python="python3"
+alias venv="source .venv/bin/activate"
 
-tmux attach -t default
+neofetch

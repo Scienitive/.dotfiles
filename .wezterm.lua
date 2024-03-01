@@ -7,7 +7,7 @@ if wezterm.config_builder then
 end
 
 -- config.color_scheme = "Isotope (dark) (terminal.sexy)"
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "catppuccin-mocha"
 config.colors = {
 	background = "black",
 }
