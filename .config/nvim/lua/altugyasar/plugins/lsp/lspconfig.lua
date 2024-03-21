@@ -129,8 +129,12 @@ return {
 			on_attach = on_attach,
 		})
 
+		local clangd_capabilities = vim.tbl_deep_extend("keep", capabilities, {
+			offsetEncoding = { "utf-16" },
+		})
 		lspconfig["clangd"].setup({
-			capabilities = capabilities,
+			cmd = { "clangd", "--function-arg-placeholders=0" },
+			capabilities = clangd_capabilities,
 			on_attach = on_attach,
 		})
 
