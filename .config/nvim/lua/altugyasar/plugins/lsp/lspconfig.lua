@@ -43,7 +43,7 @@ return {
 			keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
 			opts.desc = "Show line diagnostics"
-			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+			keymap.set("n", "<leader>dd", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
 			opts.desc = "Go to previous diagnostic"
 			keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
@@ -88,6 +88,17 @@ return {
 		lspconfig["cssls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			settings = {
+				css = { validate = true, lint = {
+					unknownAtRules = "ignore",
+				} },
+				scss = { validate = true, lint = {
+					unknownAtRules = "ignore",
+				} },
+				less = { validate = true, lint = {
+					unknownAtRules = "ignore",
+				} },
+			},
 		})
 
 		-- configure emmet language server
@@ -164,6 +175,11 @@ return {
 		})
 
 		lspconfig["sqls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

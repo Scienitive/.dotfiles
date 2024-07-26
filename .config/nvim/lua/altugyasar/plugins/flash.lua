@@ -21,5 +21,6 @@ return {
 				desc = "Flash Treesitter",
 			},
 		},
+		enabled = false,
 	},
 }

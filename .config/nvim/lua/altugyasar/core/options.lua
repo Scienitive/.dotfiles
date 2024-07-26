@@ -21,3 +21,5 @@ opt.wrap = false
 opt.list = false
 opt.clipboard = ""
 opt.scrolloff = 8
+
+vim.g.autoFormat = true

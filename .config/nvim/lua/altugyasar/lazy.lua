@@ -12,6 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{import = "altugyasar.plugins"},
-	{import = "altugyasar.plugins.lsp"},
+	{ import = "altugyasar.plugins" },
+	{ import = "altugyasar.plugins.lsp" },
 })

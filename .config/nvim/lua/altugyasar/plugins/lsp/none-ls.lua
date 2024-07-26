@@ -56,13 +56,15 @@ return {
 						group = augroup,
 						buffer = bufnr,
 						callback = function()
-							vim.lsp.buf.format({
-								filter = function(client)
-									--  only use null-ls for formatting instead of lsp server
-									return client.name == "null-ls"
-								end,
-								bufnr = bufnr,
-							})
+							if vim.g.autoFormat then
+								vim.lsp.buf.format({
+									filter = function(client)
+										--  only use null-ls for formatting instead of lsp server
+										return client.name == "null-ls"
+									end,
+									bufnr = bufnr,
+								})
+							end
 						end,
 					})
 				end
