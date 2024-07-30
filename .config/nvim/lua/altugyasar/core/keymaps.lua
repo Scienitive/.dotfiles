@@ -21,3 +21,6 @@ keymap.set("n", "<leader>ds", ":lua require'dap'.repl.open()<CR>")
 
 -- Auto format
 keymap.set("n", "<leader>af", ":lua vim.g.autoFormat = not vim.g.autoFormat<CR>", { desc = "Auto format toggle" })
+
+-- oil.nvim
+keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
