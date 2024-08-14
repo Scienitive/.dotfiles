@@ -4,20 +4,20 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-buffer", -- source for text in buffer
 		"hrsh7th/cmp-path", -- source for file system paths
-		"hrsh7th/cmp-vsnip",
-		"hrsh7th/vim-vsnip",
+		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 	},
 	config = function()
 		local cmp = require("cmp")
+		local luasnip = require("luasnip")
 
 		cmp.setup({
-			snippet = {
-				expand = function(args)
-					vim.fn["vsnip#anonymous"](args.body)
-				end,
-			},
 			completion = {
 				completeopt = "menu,menuone,noinsert",
+			},
+			snippet = {
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
@@ -31,7 +31,7 @@ return {
 			-- sources for autocompletion
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "vsnip" },
+				{ name = "luasnip" },
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),

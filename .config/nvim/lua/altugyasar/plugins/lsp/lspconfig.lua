@@ -82,6 +82,18 @@ return {
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			init_options = {
+				preferences = {
+					includeInlayParameterNameHints = "all",
+					includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+					includeInlayFunctionParameterTypeHints = true,
+					includeInlayVariableTypeHints = true,
+					includeInlayPropertyDeclarationTypeHints = true,
+					includeInlayFunctionLikeReturnTypeHints = true,
+					includeInlayEnumMemberValueHints = true,
+					importModuleSpecifierPreference = "non-relative",
+				},
+			},
 		})
 
 		-- configure css server
@@ -102,10 +114,12 @@ return {
 		})
 
 		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
+		lspconfig["emmet_language_server"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+			init_options = {
+				showExpandedAbbreviation = "never",
+			},
 		})
 
 		-- configure python server
@@ -180,6 +194,11 @@ return {
 		})
 
 		lspconfig["tailwindcss"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["eslint"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

@@ -28,7 +28,7 @@ return {
 				"html",
 				"cssls",
 				"lua_ls",
-				"emmet_ls",
+				"emmet_language_server",
 				"pyright",
 				"bashls",
 				"clangd",
@@ -38,6 +38,8 @@ return {
 				"jsonls",
 				"autotools_ls",
 				"sqls",
+				"eslint",
+				"tailwindcss",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed

@@ -118,3 +118,11 @@ alias python="python3"
 alias venv="source .venv/bin/activate"
 alias npm="pnpm"
 neofetch
+
+# pnpm
+export PNPM_HOME="/Users/altugyasar/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

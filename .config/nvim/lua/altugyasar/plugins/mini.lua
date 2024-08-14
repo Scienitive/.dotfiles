@@ -10,10 +10,4 @@ return {
 		version = "*",
 		config = true,
 	},
-
-	{
-		"echasnovski/mini.surround",
-		version = "*",
-		config = true,
-	},
 }
