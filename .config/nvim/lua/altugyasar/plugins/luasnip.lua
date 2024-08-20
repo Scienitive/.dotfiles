@@ -47,6 +47,24 @@ return {
 			local sn = ls.snippet_node
 
 			-- Add custom snippets using ls.add_snippets()
+			ls.add_snippets("typescriptreact", {
+				s("us", {
+					t("const ["),
+					i(1, "state"),
+					t(","),
+					t(" set"),
+					f(function(args)
+						return args[1][1]:gsub("^%l", string.upper)
+					end, { 1 }),
+					t("] "),
+					t("= useState<"),
+					i(2, "type"),
+					t(">"),
+					t("("),
+					i(3, "initial"),
+					t(");"),
+				}),
+			})
 		end,
 	},
 }

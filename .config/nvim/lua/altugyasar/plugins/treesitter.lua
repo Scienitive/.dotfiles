@@ -10,6 +10,7 @@ return {
 		config = function()
 			-- import nvim-treesitter plugin
 			local treesitter = require("nvim-treesitter.configs")
+			local autotag = require("nvim-ts-autotag")
 
 			-- configure treesitter
 			treesitter.setup({ -- enable syntax highlighting
@@ -18,10 +19,6 @@ return {
 				},
 				-- enable indentation
 				indent = { enable = true },
-				-- enable autotagging (w/ nvim-ts-autotag plugin)
-				autotag = {
-					enable = true,
-				},
 				-- ensure these language parsers are installed
 				ensure_installed = {
 					"json",
@@ -58,6 +55,8 @@ return {
 					},
 				},
 			})
+
+			autotag.setup({})
 		end,
 	},
 }

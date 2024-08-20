@@ -17,7 +17,7 @@ return {
 					i = {
 						["<C-p>"] = actions.move_selection_previous, -- move to prev result
 						["<C-n>"] = actions.move_selection_next, -- move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 					},
 				},
 			},

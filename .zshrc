@@ -111,6 +111,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(starship init zsh)"
+eval "$(fzf --zsh)"
 
 alias vim="nvim"
 alias vimconfig="cd ~/.config/nvim; vim init.lua"
