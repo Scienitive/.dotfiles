@@ -10,4 +10,14 @@ return {
 		version = "*",
 		config = true,
 	},
+	{
+		"echasnovski/mini.icons",
+		version = "*",
+		config = true,
+	},
+	{
+		"echasnovski/mini.diff",
+		version = "*",
+		config = true,
+	},
 }

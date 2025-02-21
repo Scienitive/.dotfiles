@@ -79,7 +79,7 @@ return {
 		})
 
 		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			init_options = {
@@ -199,6 +199,17 @@ return {
 		})
 
 		lspconfig["eslint"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["gdscript"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			cmd = { "nc", "127.0.0.1", "6005" },
+		})
+
+		lspconfig["gdshader_lsp"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

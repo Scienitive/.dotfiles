@@ -114,6 +114,7 @@ eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
 alias vim="nvim"
+alias gvim="nvim --listen /tmp/godot.pipe"
 alias vimconfig="cd ~/.config/nvim; vim init.lua"
 alias python="python3"
 alias venv="source .venv/bin/activate"

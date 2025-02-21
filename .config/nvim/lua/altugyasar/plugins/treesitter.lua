@@ -16,6 +16,7 @@ return {
 			treesitter.setup({ -- enable syntax highlighting
 				highlight = {
 					enable = true,
+					disable = { "gdscript", "gdshader_lsp" },
 				},
 				-- enable indentation
 				indent = { enable = true },
@@ -44,6 +45,9 @@ return {
 					"gowork",
 					"matlab",
 					"sql",
+					"gdscript",
+					"godot_resource",
+					"gdshader",
 				},
 				incremental_selection = {
 					enable = true,
