@@ -23,4 +23,3 @@ opt.clipboard = ""
 opt.scrolloff = 8
 
 vim.g.autoFormat = true
-vim.g.loaded_perl_provider = 0

@@ -119,6 +119,8 @@ alias vimconfig="cd ~/.config/nvim; vim init.lua"
 alias python="python3"
 alias venv="source .venv/bin/activate"
 alias npm="pnpm"
+alias gc="git commit -m"
+
 neofetch
 
 # pnpm
@@ -128,3 +130,36 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Created by `pipx` on 2025-08-20 19:27:03
+export PATH="$PATH:/Users/altugyasar/.local/bin"
+export PATH="$PATH:/Users/altugyasar/Library/custom"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# add .pjinit to path
+export PATH="$PATH:$HOME/.pjinit"
+
+# for android development
+export ANDROID_HOME="/opt/homebrew/share/android-commandlinetools"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Zellij session switcher hook
+_zellij_attach_hook() {
+    local target_file="/tmp/zellij-attach-target"
+    if [[ -f "$target_file" ]]; then
+        local target=$(cat "$target_file")
+        rm -f "$target_file"
+        if [[ "$target" == __new__* ]]; then
+            zellij --session "${target#__new__}"
+        else
+            zellij attach "$target"
+        fi
+    fi
+}
+_zellij_attach_hook

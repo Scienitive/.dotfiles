@@ -15,11 +15,72 @@ keymap.set("n", "<leader>rl", function()
 		end
 	end
 	dofile(vim.fn.stdpath("config") .. "/init.lua")
-	vim.notify("Config reloaded", vim.log.levels.INFO)
+	vim.notify("🔁 Config reloaded", vim.log.levels.INFO)
 end, { desc = "Reload full Neovim config" })
 
 -- Global copy to system clipboard
 keymap.set({ "n" }, "<leader>g", 'ggvG"+Y')
+
+-- Global diagnostics to quickfix list
+vim.keymap.set("n", "<leader>td", function()
+	-- Set errorformat using raw strings (no escape sequence processing)
+	vim.opt.errorformat = {
+		[[%E||\ %f(%l\,%c):\ error\ %m]], -- Error lines with ||
+		[[%W||\ %f(%l\,%c):\ warning\ %m]], -- Warning lines with ||
+		[[%-G||%.%#]], -- Ignore other || lines
+		[[%f(%l\,%c):\ error\ %m]], -- Fallback without ||
+		[[%f(%l\,%c):\ warning\ %m]], -- Fallback warning without ||
+	}
+
+	-- Run tsc and capture output
+	local output = vim.fn.systemlist("npx tsc --noEmit 2>&1")
+
+	-- Populate quickfix list
+	vim.fn.setqflist({}, " ", {
+		title = "TypeScript Errors",
+		lines = output,
+	})
+
+	-- Open quickfix if there are errors
+	local qf_list = vim.fn.getqflist()
+	if #qf_list > 0 then
+		vim.cmd("copen")
+	else
+		print("✅ No TypeScript errors!")
+	end
+end, { desc = "Run TypeScript compiler" })
+
+-- Apple Metal Compile
+vim.api.nvim_create_user_command("MSL", function()
+	local file = vim.fn.expand("%:p")
+	if not file:match("%.metal$") then
+		vim.notify("Not a .metal file", vim.log.levels.WARN)
+		return
+	end
+
+	local output = vim.fn.system({
+		"xcrun",
+		"-sdk",
+		"macosx",
+		"metal",
+		"-c",
+		file,
+		"-o",
+		"/dev/null",
+	})
+
+	if vim.v.shell_error == 0 then
+		vim.notify("✓ No errors", vim.log.levels.INFO)
+	else
+		-- Open in quickfix for easy navigation
+		vim.fn.setqflist({}, "r", {
+			title = "Metal Compiler",
+			lines = vim.split(output, "\n"),
+			efm = "%f:%l:%c: %t%*[^:]: %m",
+		})
+		vim.cmd("copen")
+	end
+end, { desc = "Check Metal shader compilation" })
 
 keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
